@@ -1,0 +1,84 @@
+<!doctype html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>Znaki Drogowe</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/b.css" id="theme">
+
+		<!-- syntax -->
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+
+			<div class="slides">
+				<section>
+					<h1>Znaki Drogowe</h1>
+
+
+
+					<div id="menu">
+
+					<ul>
+					<li><a href="znaki-ostrzegawcze.html">Znaki Ostrzegawcze</a></li>
+					<li><a href="znaki-zakazu.html">Znaki Zakazu</a></li>
+					<li><a href="znaki-nakazu.html">Znaki Nakazu</a></li>
+					<li><a href="znaki-informacyjne.html">Znaki Informacyjne</a></li>
+					<li><a href="znaki-kierunku.html">Znaki Kierunku i Miejscowości</a></li>
+					<li><a href="znaki-uzupelniajace.html">Znaki Uzupełniające</a></li>
+					<li><a href="znaki-tabliczki.html">Tabliczki do Znaków</a></li></div>
+					</ul>
+					
+					<br><br>
+					
+					<p>
+						<small>Wybierz interesujący Cie dział <br>lub naciśnij "spacje" na klawiaturze.</small>
+					</p>
+					<button type="button" class="close" onclick="window.open('', '_self', ''); window.close();" />
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: false,
+
+				theme: Reveal.getQueryHash().theme,
+				transition: Reveal.getQueryHash().transition || 'concave',
+
+			});
+			
+			Reveal.configure({
+  keyboard: {
+    13: 'next', // go to the next slide when the ENTER key is pressed
+    27: function closeWindow() {
+        window.open('','_parent','');
+        window.close();
+    },
+    32: function URL() {
+    location.href = 'znaki-ostrzegawcze.html';
+}
+  }
+});
+
+		</script>
+
+	</body>
+</html>
