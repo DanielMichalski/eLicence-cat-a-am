@@ -25,7 +25,7 @@ public class LearningFrame extends JFrame {
 
     public LearningFrame(Module module) {
 
-        LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance();
+        LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance(false);
 
         this.module = module;
         this.standardQuestions = learningProvider.getStanQuestionsByModule(module);

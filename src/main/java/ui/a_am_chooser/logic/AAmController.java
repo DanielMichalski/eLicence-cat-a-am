@@ -1,5 +1,6 @@
 package ui.a_am_chooser.logic;
 
+import database.provider.LearningQuestionProvider;
 import model.ChoosenCategory;
 import ui.a_am_chooser.view.AAmFrame;
 import ui.main_menu.view.MainMenuFrame;
@@ -13,6 +14,8 @@ import java.awt.event.*;
  * Author: Daniel
  */
 public class AAmController {
+    util.ChoosenCategory choosenCategory = util.ChoosenCategory.getInstance();
+
     private JDialog currentScreen;
     private JDialog nextScreen;
 
@@ -44,18 +47,22 @@ public class AAmController {
     class ACategorybtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            showNextScreen(ChoosenCategory.A);
+            choosenCategory.setChoosenCategory(ChoosenCategory.A);
+            LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance(true);
+            showNextScreen();
         }
     }
 
     class AAMCategorybtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            showNextScreen(ChoosenCategory.AM);
+            choosenCategory.setChoosenCategory(ChoosenCategory.AM);
+            LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance(true);
+            showNextScreen();
         }
     }
 
-    private void showNextScreen(ChoosenCategory a) {
+    private void showNextScreen() {
         this.currentScreen.dispose();
         nextScreen.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         nextScreen.setVisible(true);

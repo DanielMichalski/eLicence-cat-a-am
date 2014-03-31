@@ -8,6 +8,7 @@ import model.SpecialistQuestion;
 import model.StandardQuestion;
 import org.apache.log4j.Logger;
 import util.ApplicationUtils;
+import util.ChoosenCategory;
 import util.ExamUtil;
 
 import javax.swing.*;
@@ -125,10 +126,16 @@ public class PDFGenerator {
         PdfPTable table2 = new PdfPTable(new float[]{1f, 2f, 17f, 2f, 3f, 3f});
         addToTable(table2, false);
 
-        Paragraph examInfoText = new Paragraph(ExamUtil.getExamResultFromPoints(userPoints), fBigger);
-        examInfoText.setAlignment(Element.ALIGN_CENTER);
-        document.add(examInfoText);
+        ChoosenCategory choosenCategory = ChoosenCategory.getInstance();
 
+        Paragraph examInfoText = new Paragraph(
+                "                        "
+                + ExamUtil.getExamResultFromPoints(userPoints)
+                + "                        "
+                + "kat. " + choosenCategory.getChoosenCategory(), fBigger);
+        examInfoText.setAlignment(Element.ALIGN_CENTER);
+
+        document.add(examInfoText);
         document.add(new Paragraph("Imię i nazwisko: " + imie + " " + nazwisko, fBig));
         document.add(new Paragraph("PESEL: " + pesel, fBig));
         document.add(new Paragraph("Liczba uzyskanych punktów: " + userPoints + " z " + maxPosiblePoints, fBig));

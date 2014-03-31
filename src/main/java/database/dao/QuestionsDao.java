@@ -18,10 +18,7 @@ public class QuestionsDao {
         return questionsProvider.getAllStQuestions();
     }
 
-    public static List<StandardQuestion> getStandard20Questions() {
-        ExamQuestionProvider examQuestionProvider =
-                ExamQuestionProvider.getInstance();
-
+    public static List<StandardQuestion> getStandard20Questions(ExamQuestionProvider examQuestionProvider) {
         return examQuestionProvider.getStandard20Questions();
     }
 
@@ -32,10 +29,7 @@ public class QuestionsDao {
         return questionsProvider.getAllSpQuestions();
     }
 
-    public static List<SpecialistQuestion> getSpecialist12Questions() {
-        ExamQuestionProvider examQuestionProvider =
-                ExamQuestionProvider.getInstance();
-
+    public static List<SpecialistQuestion> getSpecialist12Questions(ExamQuestionProvider examQuestionProvider) {
         return examQuestionProvider.getSpecialist12Questions();
     }
 }

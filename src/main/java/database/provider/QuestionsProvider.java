@@ -21,12 +21,14 @@ public class QuestionsProvider {
 
 
     public static QuestionsProvider getInstance() {
+        ourInstance.getQuestions();
         return ourInstance;
     }
 
 
-    private QuestionsProvider() {
+    private QuestionsProvider() {}
 
+    private void getQuestions() {
         CSVQuestionDataProvider csvQuestionDataProvider =
                 new CSVQuestionDataProvider();
 

@@ -6,8 +6,8 @@ import database.dao.TextsDao;
 import encrypt.Encrypter;
 import model.*;
 import org.apache.log4j.Logger;
-import util.ApplicationUtils;
-import util.PathUtils;
+import util.*;
+import util.ChoosenCategory;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -30,6 +30,8 @@ public class CSVQuestionDataProvider {
     private List<StandardQuestion> standardQuestions;
     private List<SpecialistQuestion> specialistQuestions;
 
+    util.ChoosenCategory choosenCategory = ChoosenCategory.getInstance();
+
     public CSVQuestionDataProvider() {
         standardQuestions = new ArrayList<StandardQuestion>();
         specialistQuestions = new ArrayList<SpecialistQuestion>();
@@ -42,12 +44,18 @@ public class CSVQuestionDataProvider {
         logger.info("Wczytanych standardowych pytań: " + standardQuestions.size());
         logger.info("Wczytanych specjalistycznych pytań: " + specialistQuestions.size());
 
-        logger.info(String.format("Wczytywanie pytań: %.2f sec.", time));
+        logger.info(String.format("Wczytywanie pytań z kategorii %s: %.2f sec.", choosenCategory.getChoosenCategory(), time));
     }
 
     private void readQuestions() {
         try {
-            InputStream resourceAsStream = CSVQuestionDataProvider.class.getResourceAsStream("/csv/q_enc");
+            InputStream resourceAsStream;
+            if (choosenCategory.getChoosenCategory() == model.ChoosenCategory.A) {
+                resourceAsStream = CSVQuestionDataProvider.class.getResourceAsStream("/csv/q_enc");
+            } else {
+                resourceAsStream = CSVQuestionDataProvider.class.getResourceAsStream("/csv/q2_enc");
+            }
+
             ApplicationUtils.checkResource(resourceAsStream);
             byte[] bytesArray = Encrypter.decryptFile(resourceAsStream);
 

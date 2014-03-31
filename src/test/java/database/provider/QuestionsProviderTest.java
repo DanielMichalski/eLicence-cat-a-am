@@ -19,7 +19,7 @@ public class QuestionsProviderTest {
     public void testGetStanQuestionsByModule() throws Exception {
         long start = System.currentTimeMillis();
 
-        LearningQuestionProvider questionsProvider = LearningQuestionProvider.getInstance();
+        LearningQuestionProvider questionsProvider = LearningQuestionProvider.getInstance(true);
         ModuleProvider moduleProvider = ModuleProvider.getInstance();
 
         List<Module> allModules = moduleProvider.getAllModules();

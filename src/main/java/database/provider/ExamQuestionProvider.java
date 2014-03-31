@@ -32,8 +32,9 @@ public class ExamQuestionProvider {
 
     private static ExamQuestionProvider ourInstance = new ExamQuestionProvider();
 
-    private ExamQuestionProvider() {
+    private ExamQuestionProvider() {}
 
+    private void getQuestions() {
         QuestionsProvider provider = QuestionsProvider.getInstance();
 
         this.allStQuestions = new ArrayList<StandardQuestion>(provider.getAllStQuestions());
@@ -157,6 +158,7 @@ public class ExamQuestionProvider {
     }
 
     public static ExamQuestionProvider getInstance() {
+            ourInstance.getQuestions();
         return ourInstance;
     }
 }
