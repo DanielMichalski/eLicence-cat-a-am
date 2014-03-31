@@ -2,7 +2,6 @@ package util;
 
 import database.dao.TextsDao;
 import database.provider.ModuleProvider;
-import database.provider.QuestionsProvider;
 import encrypt.Encrypter;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -140,7 +139,6 @@ public class ApplicationUtils {
     }
 
     private static void readQuestions() {
-        QuestionsProvider.getInstance();
         ModuleProvider.getInstance();
     }
 

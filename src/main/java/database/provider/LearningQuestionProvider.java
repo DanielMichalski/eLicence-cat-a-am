@@ -17,6 +17,9 @@ public class LearningQuestionProvider {
     private static LearningQuestionProvider ourInstance = new LearningQuestionProvider();
 
     private LearningQuestionProvider() {
+    }
+
+    private void getQuestions() {
         QuestionsProvider provider = QuestionsProvider.getInstance();
 
         this.allStQuestions = provider.getAllStQuestions();
@@ -47,7 +50,10 @@ public class LearningQuestionProvider {
         return questions;
     }
 
-    public static LearningQuestionProvider getInstance() {
+    public static LearningQuestionProvider getInstance(boolean getNewQuestions) {
+        if (getNewQuestions) {
+            ourInstance.getQuestions();
+        }
         return ourInstance;
     }
 }

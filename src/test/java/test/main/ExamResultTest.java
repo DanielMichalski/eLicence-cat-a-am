@@ -1,6 +1,7 @@
 package test.main;
 
 import database.dao.QuestionsDao;
+import database.provider.ExamQuestionProvider;
 import database.provider.QuestionsProvider;
 import model.SpecialistQuestion;
 import model.StandardQuestion;
@@ -27,11 +28,13 @@ public class ExamResultTest {
         QuestionsProvider questionsProvider =
                 QuestionsProvider.getInstance();
 
+        ExamQuestionProvider examQuestionProvider = ExamQuestionProvider.getInstance();
+
         List<StandardQuestion> standardQuestions
-                = QuestionsDao.getStandard20Questions();
+                = QuestionsDao.getStandard20Questions(examQuestionProvider);
 
         List<SpecialistQuestion> specialistQuestions =
-                QuestionsDao.getSpecialist12Questions();
+                QuestionsDao.getSpecialist12Questions(examQuestionProvider);
 
         ExamResultFrame frame = new ExamResultFrame(standardQuestions, specialistQuestions);
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

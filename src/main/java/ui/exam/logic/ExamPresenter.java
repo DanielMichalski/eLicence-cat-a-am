@@ -2,6 +2,7 @@ package ui.exam.logic;
 
 import database.dao.QuestionsDao;
 import database.dao.TextsDao;
+import database.provider.ExamQuestionProvider;
 import encrypt.Encrypter;
 import model.*;
 import org.apache.log4j.Logger;
@@ -59,8 +60,10 @@ public class ExamPresenter {
     public ExamPresenter(WindowCloser windowCloser) {
         this.windowCloser = windowCloser;
 
-        this.standardQuestions = QuestionsDao.getStandard20Questions();
-        this.specialistQuestions = QuestionsDao.getSpecialist12Questions();
+        ExamQuestionProvider provider = ExamQuestionProvider.getInstance();
+
+        this.standardQuestions = QuestionsDao.getStandard20Questions(provider);
+        this.specialistQuestions = QuestionsDao.getSpecialist12Questions(provider);
 
         logger.info("Wylosowano nowe pytania do egzaminu");
     }
