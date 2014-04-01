@@ -29,6 +29,10 @@ public class MainMenuPanel extends JPanel {
     private void initializeComponents() {
         exerciseBtn = createBtn("bl_un.png", 50, 470);
         signsBtn = createBtn("signs_btn.png", 270, 470);
+
+        //TODO
+        signsBtn.setCursor(Cursor.getDefaultCursor());
+
         egxamBtn = createBtn("e_un.png", 490, 470);
         aboutApp = createBtn("op_un.png", 710, 470);
         closeBtn = createCloseBtn();

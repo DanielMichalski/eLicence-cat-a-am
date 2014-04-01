@@ -44,21 +44,38 @@ public class AAmController {
         };
     }
 
-    class ACategorybtnListener implements ActionListener {
+    class ACategorybtnListener extends MouseAdapter {
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
             choosenCategory.setChoosenCategory(ChoosenCategory.A);
             LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance(true);
             showNextScreen();
         }
     }
 
-    class AAMCategorybtnListener implements ActionListener {
+    class AAMCategorybtnListener extends MouseAdapter {
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
             choosenCategory.setChoosenCategory(ChoosenCategory.AM);
             LearningQuestionProvider learningProvider = LearningQuestionProvider.getInstance(true);
             showNextScreen();
+        }
+    }
+
+    class CloseBtnListener extends MouseAdapter {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            currentScreen.dispose();
+
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    MainMenuFrame frame = new MainMenuFrame();
+                    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    frame.setVisible(true);
+                }
+            });
+
         }
     }
 
@@ -68,11 +85,15 @@ public class AAmController {
         nextScreen.setVisible(true);
     }
 
-    public void setaCategoryBtn(JButton aCategoryBtn) {
-        aCategoryBtn.addActionListener(new ACategorybtnListener());
+    public void setaCategoryBtn(JLabel aCategoryBtn) {
+        aCategoryBtn.addMouseListener(new ACategorybtnListener());
     }
 
-    public void setaAmCategoryBtn(JButton aAmCategoryBtn) {
-        aAmCategoryBtn.addActionListener(new AAMCategorybtnListener());
+    public void setaAmCategoryBtn(JLabel aAmCategoryBtn) {
+        aAmCategoryBtn.addMouseListener(new AAMCategorybtnListener());
+    }
+
+    public void setCloseBtn(JLabel closeBtn) {
+        closeBtn.addMouseListener(new CloseBtnListener());
     }
 }

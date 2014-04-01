@@ -11,8 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Author: dmichalski
@@ -41,14 +39,16 @@ public class MainMenuPresenter {
     class SignsBtnListener extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
-            try {
-                File htmlFile = new File(TextsDao.getFilePath("signs.app"));
+           //TODO
+           /* try {
+                String s = File.separator;
+                File htmlFile = new File("data" + s + "znaki" + s + "index.html");
                 Desktop.getDesktop().browse(htmlFile.toURI());
             } catch (IOException e1) {
                 JOptionPane.showMessageDialog(
                         null,
                         "Wystąpił błąd przy otwieraniu modułu: " + e);
-            }
+            }*/
         }
     }
 
