@@ -11,7 +11,6 @@ import java.awt.*;
  */
 public class MainMenuPanel extends JPanel {
     private JLabel exerciseBtn;
-    private JLabel signsBtn;
     private JLabel egxamBtn;
     private JLabel aboutApp;
     private JLabel closeBtn;
@@ -27,18 +26,12 @@ public class MainMenuPanel extends JPanel {
     }
 
     private void initializeComponents() {
-        exerciseBtn = createBtn("bl_un.png", 50, 470);
-        signsBtn = createBtn("signs_btn.png", 270, 470);
-
-        //TODO
-        signsBtn.setCursor(Cursor.getDefaultCursor());
-
-        egxamBtn = createBtn("e_un.png", 490, 470);
-        aboutApp = createBtn("op_un.png", 710, 470);
+        exerciseBtn = createBtn("bl_un.png", 140, 470);
+        egxamBtn = createBtn("e_un.png", 390, 470);
+        aboutApp = createBtn("op_un.png", 640, 470);
         closeBtn = createCloseBtn();
 
         add(exerciseBtn);
-        add(signsBtn);
         add(egxamBtn);
         add(aboutApp);
         add(closeBtn);
@@ -71,10 +64,6 @@ public class MainMenuPanel extends JPanel {
 
     public JLabel getExerciseBtn() {
         return exerciseBtn;
-    }
-
-    public JLabel getSignsBtn() {
-        return signsBtn;
     }
 
     public JLabel getEgxamBtn() {
