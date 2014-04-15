@@ -59,7 +59,7 @@ public class MainMenuFrame extends JFrame {
         add(mainPanel, BorderLayout.CENTER);
 
         presenter.setExerciseBtn(mainPanel.getExerciseBtn());
-        presenter.setSignsBtn(mainPanel.getSignsBtn());
+//        presenter.setSignsBtn(mainPanel.getSignsBtn());
         presenter.setEgxamBtn(mainPanel.getEgxamBtn());
         presenter.setAboutExamBtn(mainPanel.getAboutApp());
         presenter.setCloseBtn(mainPanel.getCloseBtn());
